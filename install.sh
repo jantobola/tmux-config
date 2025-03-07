@@ -9,8 +9,8 @@ if [ -d "$tpm_dir" ]; then
   git pull
   cd $rd
 else
-  git clone https://github.com/tmux-plugins/tpm "$tpm_dir" && "$tpm_dir/bin/install_plugins"
-  echo "TPM installed"
+  git clone https://github.com/tmux-plugins/tpm "$tpm_dir" && "$tpm_dir/bin/install_plugins" \
+    && echo "TPM installed"
 fi
 
 ln -sf "$HOME/.tmux/cfg/.tmux.conf" ~/
@@ -18,6 +18,6 @@ ln -sf "$HOME/.tmux/cfg/.tmux.conf" ~/
 if [ "$1" = "zsh" ]; then
   tmux_zsh_init="$(cat ./zsh/zsh_init.sh)"
   sed -i '/#--\[tmux-start\]--/,/#--\[tmux-end\]--/d' "$HOME/.zshrc"
-  printf '%s\n%s\n' "$tmux_zsh_init" "$(cat "$HOME/.zshrc")" >"$HOME/.zshrc"
-  echo "Updated ~/.zshrc"
+  printf '%s\n%s\n' "$tmux_zsh_init" "$(cat "$HOME/.zshrc")" >"$HOME/.zshrc" \
+    && echo "Updated ~/.zshrc"
 fi
