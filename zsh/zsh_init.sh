@@ -1,3 +1,4 @@
+#--[tmux-start]--
 # Start TMUX session automatically
 if [ "$TMUX" = "" ]; then
   tmux has-session -t TMUX
@@ -7,3 +8,4 @@ if [ "$TMUX" = "" ]; then
     tmux a -t TMUX
   fi
 fi
+#--[tmux-end]--
