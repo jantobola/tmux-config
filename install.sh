@@ -13,7 +13,7 @@ else
   echo "TPM installed"
 fi
 
-ln -sf "$(pwd)/.tmux.conf" ~/
+ln -sf "$HOME/.tmux/cfg/.tmux.conf" ~/
 
 if [ "$1" = "zsh" ]; then
   tmux_zsh_init="$(cat ./zsh/zsh_init.sh)"
