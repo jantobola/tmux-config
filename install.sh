@@ -16,7 +16,7 @@ fi
 ln -sf "$HOME/.tmux/cfg/.tmux.conf" ~/
 
 if [ "$1" = "zsh" ]; then
-  tmux_zsh_init="$(cat ./zsh/zsh_init.sh)"
+  tmux_zsh_init="$(cat "$HOME/.tmux/cfg/zsh/zsh_init.sh")"
   sed -i '/#--\[tmux-start\]--/,/#--\[tmux-end\]--/d' "$HOME/.zshrc"
   printf '%s\n%s\n' "$tmux_zsh_init" "$(cat "$HOME/.zshrc")" >"$HOME/.zshrc" \
     && echo "Updated ~/.zshrc"
